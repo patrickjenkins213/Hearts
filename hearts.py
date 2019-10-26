@@ -35,10 +35,10 @@ def resolve_trick(trick):
 class Hearts(object):
     def __init__(self):
         self._players = [
-            player.Player('Paul'),
-            player.Player('John'),
-            player.Player('George'),
-            player.Player('Ringo')
+            player.Player(),
+            player.Player(),
+            player.Player(),
+            player.Player()
         ]
 
         self._scores = {
