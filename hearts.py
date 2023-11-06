@@ -4,6 +4,7 @@ import player
 from rank import Rank
 from suit import Suit
 
+
 def hearts_compare(card1, card2):
     """
     Compares cards two cards in a trick to see which one is greater.
@@ -114,6 +115,7 @@ class Hearts(object):
             hand_num += 1
 
         print(self._scores)
+
 
 if __name__ == '__main__':
     game = Hearts()

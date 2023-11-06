@@ -1,5 +1,6 @@
 from enum import IntEnum
 
+
 class Rank(IntEnum):
     def __new__(cls, value, label):
         obj = int.__new__(cls, value)

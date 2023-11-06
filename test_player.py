@@ -60,5 +60,6 @@ class TestPlayer(unittest.TestCase):
             self.assertTrue(card in hand)
             self.assertTrue(card not in player.get_hand())
 
+
 if __name__ == '__main__':
     unittest.main()

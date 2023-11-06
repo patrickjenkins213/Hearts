@@ -1,6 +1,7 @@
 from rank import Rank
 from suit import Suit
 
+
 class Card(object):
     def __init__(self, rank, suit):
         self._rank = rank
