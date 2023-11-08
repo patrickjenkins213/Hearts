@@ -1,19 +1,10 @@
 from card import Card
 from deck import Deck
-import player
 from rank import Rank
 from suit import Suit
 
 
 def hearts_compare(card1, card2):
-    """
-    Compares cards two cards in a trick to see which one is greater.
-    One of the cards will always be trump since trump is who led
-    :param card1 Card:
-    :param card2 Card:
-    :param trump Suit:
-    :return: 1 if card1 greater, -1 if card2 greater, 0 if same
-    """
     if card1.suit is card2.suit:
         if card1.rank > card2.rank:
             return 1
@@ -21,37 +12,32 @@ def hearts_compare(card1, card2):
             return -1
         else:
             return 0
-
     return -1
+
 
 def resolve_trick(trick):
     win = trick[0]
     for card in trick:
-        #print(card, win, hearts_compare(card, win, trump))
         if hearts_compare(card, win) == 1:
             win = card
 
     return trick.index(card)
 
-class Hearts(object):
-    def __init__(self):
-        self._players = [
-            player.Player(),
-            player.Player(),
-            player.Player(),
-            player.Player()
-        ]
 
-        self._scores = {
-            self._players[0].get_name(): 0,
-            self._players[1].get_name(): 0,
-            self._players[2].get_name(): 0,
-            self._players[3].get_name(): 0,
-        }
+class Hearts:
+    def __init__(self):
+        self.id = 7
+        self.players = []
 
     @property
     def scores(self):
-        return self._scores
+        return self.scores
+
+    def add_player(self, player_id):
+        if len(self.players) < 4:
+            self.players.append(player_id)
+            return True
+        return False
 
     def play_game(self):
         passing = [3, 1, 2, 0]
@@ -115,8 +101,3 @@ class Hearts(object):
             hand_num += 1
 
         print(self._scores)
-
-
-if __name__ == '__main__':
-    game = Hearts()
-    game.play_game()
